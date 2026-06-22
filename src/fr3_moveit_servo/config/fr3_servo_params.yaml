@@ -1,0 +1,26 @@
+## MoveIt properties
+move_group_name: fr3_arm               # Matches franka_fr3_moveit_config
+planning_frame: fr3_link0              # Base frame of the FR3
+ee_frame_name: fr3_link8               # End-effector link frame
+robot_link_command_frame: fr3_link0    # Frame in which twist commands are received
+
+## Properties of incoming commands
+cartesian_command_in_topic: ~/delta_twist_cmds  # Resolves to /servo_node/delta_twist_cmds
+joint_command_in_topic: ~/delta_joint_cmds      # Resolves to /servo_node/delta_joint_cmds
+
+## Properties of outgoing commands
+# The franka_ros2 controller manager expects JointTrajectory messages
+command_out_type: trajectory_msgs/JointTrajectory
+command_out_topic: /fr3_arm_controller/joint_trajectory 
+
+publish_period: 0.01                   # Streaming rate (100Hz)
+incoming_command_timeout: 0.1          # Stop moving if no command received for 0.1s
+
+## Smoothing and Limits
+use_smoothing: true
+smoothing_filter_plugin_name: "online_signal_smoothing::AccelerationLimitedPlugin"
+
+## Collision checking 
+check_collisions: true
+self_collision_proximity_threshold: 0.01
+scene_collision_proximity_threshold: 0.05
