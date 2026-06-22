@@ -1,0 +1,14 @@
+services:
+  dev:
+    image: ghcr.io/dimasad/fr3-moveit-servo:latest
+    privileged: true
+    restart: no
+    network_mode: host
+    init: true          # Ensure signal forwarding to child processes
+    stop_signal: SIGINT # ros2 launch needs SIGINT to shutdown gracefully
+    volumes:
+      - .:/workspace
+    environment:
+      DISPLAY: ${DISPLAY}
+      RMW_IMPLEMENTATION: ${RMW_IMPLEMENTATION:-rmw_cyclonedds_cpp}
+      ROS_DOMAIN_ID: ${ROS_DOMAIN_ID:-0}
