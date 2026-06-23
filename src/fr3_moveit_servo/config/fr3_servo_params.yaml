@@ -1,4 +1,4 @@
-/**:
+servo_node:
   ros__parameters:
     ## MoveIt properties
     move_group_name: fr3_arm               # Matches franka_fr3_moveit_config

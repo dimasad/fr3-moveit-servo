@@ -28,13 +28,6 @@ def generate_launch_description():
     fr3_servo_config_dir = get_package_share_directory("fr3_moveit_servo")
     servo_yaml_path = os.path.join(fr3_servo_config_dir, "config", "fr3_servo_params.yaml")
 
-    # Also load kinematics config from franka_fr3_moveit_config for inverse kinematics
-    franka_kinematics_file = os.path.join(
-        get_package_share_directory("franka_fr3_moveit_config"),
-        "config",
-        "kinematics.yaml",
-    )
-
     # Get robot description from franka_description package
     franka_xacro_file = os.path.join(
         get_package_share_directory("franka_description"),
@@ -58,6 +51,25 @@ def generate_launch_description():
         "robot_description": ParameterValue(robot_description_content, value_type=str)
     }
 
+    # Get SRDF from franka_description package
+    srdf_file = os.path.join(
+        get_package_share_directory("franka_description"),
+        "robots", "fr3", "fr3.srdf.xacro"
+    )
+
+    robot_description_semantic_content = Command(
+        [
+            FindExecutable(name="xacro"),
+            " ",
+            srdf_file,
+            " hand:=true",
+        ]
+    )
+
+    robot_description_semantic = {
+        "robot_description_semantic": ParameterValue(robot_description_semantic_content, value_type=str)
+    }
+
     servo_node = Node(
         package="moveit_servo",
         executable="servo_node_main",
@@ -65,8 +77,8 @@ def generate_launch_description():
         output="screen",
         parameters=[
             robot_description,
+            robot_description_semantic,
             servo_yaml_path,
-            franka_kinematics_file,
         ],
     )
 
