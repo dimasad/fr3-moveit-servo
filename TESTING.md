@@ -67,7 +67,7 @@ ros2 run fr3_moveit_servo servo_test_client 0.25 10.0
 When the test client runs, you should see:
 1. The test client prints: "Publishing joint velocity commands to /servo_node/delta_joint_cmds"
 2. The test client prints: "Rotating wrist joint (FR3_joint7) at X rad/s" (where X is your specified velocity)
-3. Every 2 seconds, it prints the elapsed time
+3. Every 1 second, it prints the elapsed time and current velocity
 4. After the specified duration, it prints "Test complete - wrist joint stopped"
 
 ### Monitoring Joint State
@@ -86,6 +86,7 @@ If you want to manually test servo commands without the test client:
 
 ```bash
 # In one terminal, publish velocity commands
+# Note: Joint names must match those defined in servo_test_client.py: fr3_joint1 through fr3_joint7
 ros2 topic pub -r 100 /servo_node/delta_joint_cmds sensor_msgs/JointState "{header: {frame_id: 'fr3_link0'}, name: ['fr3_joint1', 'fr3_joint2', 'fr3_joint3', 'fr3_joint4', 'fr3_joint5', 'fr3_joint6', 'fr3_joint7'], velocity: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25]}"
 ```
 
