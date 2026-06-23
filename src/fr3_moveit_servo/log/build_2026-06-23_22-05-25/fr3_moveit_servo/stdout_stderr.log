@@ -1,0 +1,26 @@
+running develop
+running egg_info
+creating fr3_moveit_servo.egg-info
+writing fr3_moveit_servo.egg-info/PKG-INFO
+writing dependency_links to fr3_moveit_servo.egg-info/dependency_links.txt
+writing entry points to fr3_moveit_servo.egg-info/entry_points.txt
+writing requirements to fr3_moveit_servo.egg-info/requires.txt
+writing top-level names to fr3_moveit_servo.egg-info/top_level.txt
+writing manifest file 'fr3_moveit_servo.egg-info/SOURCES.txt'
+reading manifest file 'fr3_moveit_servo.egg-info/SOURCES.txt'
+writing manifest file 'fr3_moveit_servo.egg-info/SOURCES.txt'
+running build_ext
+Creating /workspace/src/fr3_moveit_servo/install/fr3_moveit_servo/lib/python3.10/site-packages/fr3-moveit-servo.egg-link (link to .)
+Installing servo_test_client script to /workspace/src/fr3_moveit_servo/install/fr3_moveit_servo/lib/fr3_moveit_servo
+
+Installed /workspace/src/fr3_moveit_servo/build/fr3_moveit_servo
+running symlink_data
+creating /workspace/src/fr3_moveit_servo/install/fr3_moveit_servo/share/ament_index
+creating /workspace/src/fr3_moveit_servo/install/fr3_moveit_servo/share/ament_index/resource_index
+creating /workspace/src/fr3_moveit_servo/install/fr3_moveit_servo/share/ament_index/resource_index/packages
+symbolically linking /workspace/src/fr3_moveit_servo/build/fr3_moveit_servo/resource/fr3_moveit_servo -> /workspace/src/fr3_moveit_servo/install/fr3_moveit_servo/share/ament_index/resource_index/packages
+symbolically linking /workspace/src/fr3_moveit_servo/build/fr3_moveit_servo/package.xml -> /workspace/src/fr3_moveit_servo/install/fr3_moveit_servo/share/fr3_moveit_servo
+creating /workspace/src/fr3_moveit_servo/install/fr3_moveit_servo/share/fr3_moveit_servo/launch
+symbolically linking /workspace/src/fr3_moveit_servo/build/fr3_moveit_servo/launch/fr3_moveit_servo.launch.py -> /workspace/src/fr3_moveit_servo/install/fr3_moveit_servo/share/fr3_moveit_servo/launch
+creating /workspace/src/fr3_moveit_servo/install/fr3_moveit_servo/share/fr3_moveit_servo/config
+symbolically linking /workspace/src/fr3_moveit_servo/build/fr3_moveit_servo/config/fr3_servo_params.yaml -> /workspace/src/fr3_moveit_servo/install/fr3_moveit_servo/share/fr3_moveit_servo/config

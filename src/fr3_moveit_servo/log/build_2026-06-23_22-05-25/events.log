@@ -1,0 +1,42 @@
+[0.000000] (-) TimerEvent: {}
+[0.000771] (fr3_moveit_servo) JobQueued: {'identifier': 'fr3_moveit_servo', 'dependencies': OrderedDict()}
+[0.000807] (fr3_moveit_servo) JobStarted: {'identifier': 'fr3_moveit_servo'}
+[0.099745] (-) TimerEvent: {}
+[0.199925] (-) TimerEvent: {}
+[0.300071] (-) TimerEvent: {}
+[0.400215] (-) TimerEvent: {}
+[0.500386] (-) TimerEvent: {}
+[0.532737] (fr3_moveit_servo) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/workspace/src/fr3_moveit_servo/build/fr3_moveit_servo/build', '--no-deps', 'symlink_data'], 'cwd': '/workspace/src/fr3_moveit_servo/build/fr3_moveit_servo', 'env': {'HOSTNAME': 'runnervm7b5n9', 'SHLVL': '0', 'LD_LIBRARY_PATH': '/opt/ros/humble/franka/franka_robot_state_broadcaster/lib:/opt/ros/humble/franka/franka_example_controllers/lib:/opt/ros/humble/franka/franka_semantic_components/lib:/opt/ros/humble/franka/franka_ign_ros2_control/lib:/opt/ros/humble/franka/franka_hardware/lib:/opt/ros/humble/franka/franka_gripper/lib:/opt/ros/humble/franka/libfranka/lib:/opt/ros/humble/franka/integration_launch_testing/lib:/opt/ros/humble/franka/franka_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/root', 'OLDPWD': '/', 'ROS_PYTHON_VERSION': '3', 'COLCON_PREFIX_PATH': '/opt/ros/humble/franka', 'ROS_DISTRO': 'humble', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/opt/ros/humble/franka/libfranka/lib/x86_64-linux-gnu/pkgconfig:/opt/ros/humble/franka/libfranka/lib/pkgconfig', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/franka/libfranka/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'DISPLAY': '', 'LANG': 'C.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'ROS_DOMAIN_ID': '0', 'AMENT_PREFIX_PATH': '/opt/ros/humble/franka/franka_ros2:/opt/ros/humble/franka/franka_bringup:/opt/ros/humble/franka/franka_robot_state_broadcaster:/opt/ros/humble/franka/franka_example_controllers:/opt/ros/humble/franka/franka_semantic_components:/opt/ros/humble/franka/franka_gazebo_bringup:/opt/ros/humble/franka/franka_ign_ros2_control:/opt/ros/humble/franka/franka_fr3_moveit_config:/opt/ros/humble/franka/franka_hardware:/opt/ros/humble/franka/franka_gripper:/opt/ros/humble/franka/integration_launch_testing:/opt/ros/humble/franka/franka_msgs:/opt/ros/humble/franka/franka_description:/opt/ros/humble', 'PWD': '/workspace/src/fr3_moveit_servo/build/fr3_moveit_servo', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/workspace/src/fr3_moveit_servo/build/fr3_moveit_servo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/src/fr3_moveit_servo/install/fr3_moveit_servo/lib/python3.10/site-packages:/opt/ros/humble/franka/franka_gripper/local/lib/python3.10/dist-packages:/opt/ros/humble/franka/franka_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/opt/ros/humble/franka/franka_ros2:/opt/ros/humble/franka/franka_bringup:/opt/ros/humble/franka/franka_robot_state_broadcaster:/opt/ros/humble/franka/franka_example_controllers:/opt/ros/humble/franka/franka_semantic_components:/opt/ros/humble/franka/franka_gazebo_bringup:/opt/ros/humble/franka/franka_ign_ros2_control:/opt/ros/humble/franka/franka_fr3_moveit_config:/opt/ros/humble/franka/franka_hardware:/opt/ros/humble/franka/franka_gripper:/opt/ros/humble/franka/libfranka:/opt/ros/humble/franka/integration_launch_testing:/opt/ros/humble/franka/franka_msgs:/opt/ros/humble/franka/franka_description'}, 'shell': False}
+[0.600496] (-) TimerEvent: {}
+[0.700653] (-) TimerEvent: {}
+[0.752873] (fr3_moveit_servo) StdoutLine: {'line': b'running develop\n'}
+[0.800760] (-) TimerEvent: {}
+[0.871720] (fr3_moveit_servo) StdoutLine: {'line': b'running egg_info\n'}
+[0.871871] (fr3_moveit_servo) StdoutLine: {'line': b'creating fr3_moveit_servo.egg-info\n'}
+[0.872155] (fr3_moveit_servo) StdoutLine: {'line': b'writing fr3_moveit_servo.egg-info/PKG-INFO\n'}
+[0.872287] (fr3_moveit_servo) StdoutLine: {'line': b'writing dependency_links to fr3_moveit_servo.egg-info/dependency_links.txt\n'}
+[0.872464] (fr3_moveit_servo) StdoutLine: {'line': b'writing entry points to fr3_moveit_servo.egg-info/entry_points.txt\n'}
+[0.872686] (fr3_moveit_servo) StdoutLine: {'line': b'writing requirements to fr3_moveit_servo.egg-info/requires.txt\n'}
+[0.872815] (fr3_moveit_servo) StdoutLine: {'line': b'writing top-level names to fr3_moveit_servo.egg-info/top_level.txt\n'}
+[0.873036] (fr3_moveit_servo) StdoutLine: {'line': b"writing manifest file 'fr3_moveit_servo.egg-info/SOURCES.txt'\n"}
+[0.874238] (fr3_moveit_servo) StdoutLine: {'line': b"reading manifest file 'fr3_moveit_servo.egg-info/SOURCES.txt'\n"}
+[0.874847] (fr3_moveit_servo) StdoutLine: {'line': b"writing manifest file 'fr3_moveit_servo.egg-info/SOURCES.txt'\n"}
+[0.876037] (fr3_moveit_servo) StdoutLine: {'line': b'running build_ext\n'}
+[0.876272] (fr3_moveit_servo) StdoutLine: {'line': b'Creating /workspace/src/fr3_moveit_servo/install/fr3_moveit_servo/lib/python3.10/site-packages/fr3-moveit-servo.egg-link (link to .)\n'}
+[0.877011] (fr3_moveit_servo) StdoutLine: {'line': b'Installing servo_test_client script to /workspace/src/fr3_moveit_servo/install/fr3_moveit_servo/lib/fr3_moveit_servo\n'}
+[0.877284] (fr3_moveit_servo) StdoutLine: {'line': b'\n'}
+[0.877422] (fr3_moveit_servo) StdoutLine: {'line': b'Installed /workspace/src/fr3_moveit_servo/build/fr3_moveit_servo\n'}
+[0.877628] (fr3_moveit_servo) StdoutLine: {'line': b'running symlink_data\n'}
+[0.877764] (fr3_moveit_servo) StdoutLine: {'line': b'creating /workspace/src/fr3_moveit_servo/install/fr3_moveit_servo/share/ament_index\n'}
+[0.877909] (fr3_moveit_servo) StdoutLine: {'line': b'creating /workspace/src/fr3_moveit_servo/install/fr3_moveit_servo/share/ament_index/resource_index\n'}
+[0.878041] (fr3_moveit_servo) StdoutLine: {'line': b'creating /workspace/src/fr3_moveit_servo/install/fr3_moveit_servo/share/ament_index/resource_index/packages\n'}
+[0.878296] (fr3_moveit_servo) StdoutLine: {'line': b'symbolically linking /workspace/src/fr3_moveit_servo/build/fr3_moveit_servo/resource/fr3_moveit_servo -> /workspace/src/fr3_moveit_servo/install/fr3_moveit_servo/share/ament_index/resource_index/packages\n'}
+[0.878410] (fr3_moveit_servo) StdoutLine: {'line': b'symbolically linking /workspace/src/fr3_moveit_servo/build/fr3_moveit_servo/package.xml -> /workspace/src/fr3_moveit_servo/install/fr3_moveit_servo/share/fr3_moveit_servo\n'}
+[0.878491] (fr3_moveit_servo) StdoutLine: {'line': b'creating /workspace/src/fr3_moveit_servo/install/fr3_moveit_servo/share/fr3_moveit_servo/launch\n'}
+[0.878564] (fr3_moveit_servo) StdoutLine: {'line': b'symbolically linking /workspace/src/fr3_moveit_servo/build/fr3_moveit_servo/launch/fr3_moveit_servo.launch.py -> /workspace/src/fr3_moveit_servo/install/fr3_moveit_servo/share/fr3_moveit_servo/launch\n'}
+[0.878636] (fr3_moveit_servo) StdoutLine: {'line': b'creating /workspace/src/fr3_moveit_servo/install/fr3_moveit_servo/share/fr3_moveit_servo/config\n'}
+[0.878704] (fr3_moveit_servo) StdoutLine: {'line': b'symbolically linking /workspace/src/fr3_moveit_servo/build/fr3_moveit_servo/config/fr3_servo_params.yaml -> /workspace/src/fr3_moveit_servo/install/fr3_moveit_servo/share/fr3_moveit_servo/config\n'}
+[0.898525] (fr3_moveit_servo) CommandEnded: {'returncode': 0}
+[0.901009] (-) TimerEvent: {}
+[0.911101] (fr3_moveit_servo) JobEnded: {'identifier': 'fr3_moveit_servo', 'rc': 0}
+[0.911590] (-) EventReactorShutdown: {}

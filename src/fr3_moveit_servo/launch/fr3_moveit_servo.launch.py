@@ -1,4 +1,5 @@
 import os
+import yaml
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
@@ -7,6 +8,12 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, Command, FindExecutable
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
+
+
+def load_yaml(file_path):
+    """Load a YAML file and return its contents as a dictionary."""
+    with open(file_path, "r") as f:
+        return yaml.safe_load(f)
 
 
 def generate_launch_description():
@@ -24,9 +31,22 @@ def generate_launch_description():
         }.items()
     )
 
-    # 3. Load servo configuration parameters
+    # 3. Load servo configuration parameters from YAML file
     fr3_servo_config_dir = get_package_share_directory("fr3_moveit_servo")
-    servo_yaml_path = os.path.join(fr3_servo_config_dir, "config", "fr3_servo_params.yaml")
+    servo_yaml_file = os.path.join(fr3_servo_config_dir, "config", "fr3_servo_params.yaml")
+    
+    # Load YAML and wrap in moveit_servo key as expected by servo_node
+    servo_yaml = load_yaml(servo_yaml_file)
+    # Extract the nested ros__parameters and wrap in moveit_servo key
+    servo_params = {"moveit_servo": servo_yaml.get("servo_node", {}).get("ros__parameters", {})}
+
+    # 4. Load kinematics configuration from franka_fr3_moveit_config
+    kinematics_file = os.path.join(
+        get_package_share_directory("franka_fr3_moveit_config"),
+        "config", "kinematics.yaml"
+    )
+    kinematics_yaml = load_yaml(kinematics_file)
+    kinematics_params = {"kinematics_solver_search_resolution": {"fr3_arm": kinematics_yaml}}
 
     # Get robot description from franka_description package
     franka_xacro_file = os.path.join(
@@ -78,7 +98,8 @@ def generate_launch_description():
         parameters=[
             robot_description,
             robot_description_semantic,
-            servo_yaml_path,
+            servo_params,
+            kinematics_params,
         ],
     )
 

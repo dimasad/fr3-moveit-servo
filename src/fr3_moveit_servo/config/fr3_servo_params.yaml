@@ -20,7 +20,7 @@ servo_node:
 
     ## Smoothing and Limits
     use_smoothing: true
-    smoothing_filter_plugin_name: "online_signal_smoothing::AccelerationLimitedPlugin"
+    smoothing_filter_plugin_name: "online_signal_smoothing::ButterworthFilterPlugin"
 
     ## Collision checking
     check_collisions: true

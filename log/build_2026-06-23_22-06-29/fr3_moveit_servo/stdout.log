@@ -1,0 +1,15 @@
+running develop
+running egg_info
+writing fr3_moveit_servo.egg-info/PKG-INFO
+writing dependency_links to fr3_moveit_servo.egg-info/dependency_links.txt
+writing entry points to fr3_moveit_servo.egg-info/entry_points.txt
+writing requirements to fr3_moveit_servo.egg-info/requires.txt
+writing top-level names to fr3_moveit_servo.egg-info/top_level.txt
+reading manifest file 'fr3_moveit_servo.egg-info/SOURCES.txt'
+writing manifest file 'fr3_moveit_servo.egg-info/SOURCES.txt'
+running build_ext
+Creating /workspace/install/fr3_moveit_servo/lib/python3.10/site-packages/fr3-moveit-servo.egg-link (link to .)
+Installing servo_test_client script to /workspace/install/fr3_moveit_servo/lib/fr3_moveit_servo
+
+Installed /workspace/build/fr3_moveit_servo
+running symlink_data
