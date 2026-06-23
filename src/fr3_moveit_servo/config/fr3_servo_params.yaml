@@ -26,5 +26,5 @@ self_collision_proximity_threshold: 0.01
 scene_collision_proximity_threshold: 0.05
 
 ## Scale factors for joint velocity commands
-joint_limit_margin: 0.1                # Safety margin for joint limits (0-1.0)
+joint_limit_margin: 0.1                # Safety margin as fraction of joint range (0-1.0, where 0.1 = 10% margin)
 

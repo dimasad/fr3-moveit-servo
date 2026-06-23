@@ -71,9 +71,9 @@ class ServoTestClient(Node):
 
             self.joint_cmd_publisher.publish(msg)
 
-            # Print status every 100 iterations (roughly every 1 second at 100 Hz)
+            # Print status every 200 iterations (roughly every 2 seconds at 100 Hz)
             loop_count += 1
-            if loop_count % 100 == 0:
+            if loop_count % 200 == 0:
                 self.get_logger().info(f"Elapsed: {elapsed:.1f}s, Sending wrist velocity: {wrist_velocity} rad/s")
 
             rate.sleep()
