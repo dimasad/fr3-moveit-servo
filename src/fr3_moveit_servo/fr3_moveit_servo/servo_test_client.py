@@ -7,6 +7,7 @@ Sends commands to rotate the wrist (FR3 joint 7) at 0.25 rad/s.
 import sys
 import rclpy
 from rclpy.node import Node
+from rclpy.utilities import remove_ros_args
 from sensor_msgs.msg import JointState
 
 
@@ -85,22 +86,25 @@ class ServoTestClient(Node):
 def main(args=None):
     rclpy.init(args=args)
     
-    # Parse command line arguments
+    # Filter out ROS 2 arguments to handle custom arguments properly
+    filtered_args = remove_ros_args(sys.argv)
+    
+    # Parse command line arguments (skip the first element which is the script name)
     wrist_velocity = 0.25
     duration = 10.0
     
-    if len(sys.argv) > 1:
+    if len(filtered_args) > 1:
         try:
-            wrist_velocity = float(sys.argv[1])
+            wrist_velocity = float(filtered_args[1])
         except ValueError:
-            print(f"Invalid wrist velocity: {sys.argv[1]}. Expected a numeric value in rad/s.")
+            print(f"Invalid wrist velocity: {filtered_args[1]}. Expected a numeric value in rad/s.")
             sys.exit(1)
     
-    if len(sys.argv) > 2:
+    if len(filtered_args) > 2:
         try:
-            duration = float(sys.argv[2])
+            duration = float(filtered_args[2])
         except ValueError:
-            print(f"Invalid duration: {sys.argv[2]}. Expected a numeric value in seconds.")
+            print(f"Invalid duration: {filtered_args[2]}. Expected a numeric value in seconds.")
             sys.exit(1)
     
     client = ServoTestClient()
