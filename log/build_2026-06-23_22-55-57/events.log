@@ -1,0 +1,33 @@
+[0.000000] (-) TimerEvent: {}
+[0.000086] (fr3_moveit_servo) JobQueued: {'identifier': 'fr3_moveit_servo', 'dependencies': OrderedDict()}
+[0.000118] (fr3_moveit_servo) JobStarted: {'identifier': 'fr3_moveit_servo'}
+[0.099051] (-) TimerEvent: {}
+[0.199225] (-) TimerEvent: {}
+[0.299397] (-) TimerEvent: {}
+[0.399592] (-) TimerEvent: {}
+[0.499787] (-) TimerEvent: {}
+[0.539692] (fr3_moveit_servo) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/fr3_moveit_servo', 'build', '--build-base', '/workspace/build/fr3_moveit_servo/build', 'install', '--record', '/workspace/build/fr3_moveit_servo/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/workspace/src/fr3_moveit_servo', 'env': {'HOSTNAME': 'runnervm7b5n9', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/franka/franka_robot_state_broadcaster/lib:/opt/ros/humble/franka/franka_example_controllers/lib:/opt/ros/humble/franka/franka_semantic_components/lib:/opt/ros/humble/franka/franka_ign_ros2_control/lib:/opt/ros/humble/franka/franka_hardware/lib:/opt/ros/humble/franka/franka_gripper/lib:/opt/ros/humble/franka/libfranka/lib:/opt/ros/humble/franka/integration_launch_testing/lib:/opt/ros/humble/franka/franka_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/root', 'OLDPWD': '/', 'ROS_PYTHON_VERSION': '3', 'COLCON_PREFIX_PATH': '/opt/ros/humble/franka', 'ROS_DISTRO': 'humble', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/opt/ros/humble/franka/libfranka/lib/x86_64-linux-gnu/pkgconfig:/opt/ros/humble/franka/libfranka/lib/pkgconfig', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/franka/libfranka/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'DISPLAY': '', 'LANG': 'C.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'ROS_DOMAIN_ID': '0', 'AMENT_PREFIX_PATH': '/opt/ros/humble/franka/franka_ros2:/opt/ros/humble/franka/franka_bringup:/opt/ros/humble/franka/franka_robot_state_broadcaster:/opt/ros/humble/franka/franka_example_controllers:/opt/ros/humble/franka/franka_semantic_components:/opt/ros/humble/franka/franka_gazebo_bringup:/opt/ros/humble/franka/franka_ign_ros2_control:/opt/ros/humble/franka/franka_fr3_moveit_config:/opt/ros/humble/franka/franka_hardware:/opt/ros/humble/franka/franka_gripper:/opt/ros/humble/franka/integration_launch_testing:/opt/ros/humble/franka/franka_msgs:/opt/ros/humble/franka/franka_description:/opt/ros/humble', 'PWD': '/workspace/build/fr3_moveit_servo', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/workspace/build/fr3_moveit_servo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/install/fr3_moveit_servo/lib/python3.10/site-packages:/opt/ros/humble/franka/franka_gripper/local/lib/python3.10/dist-packages:/opt/ros/humble/franka/franka_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/opt/ros/humble/franka/franka_ros2:/opt/ros/humble/franka/franka_bringup:/opt/ros/humble/franka/franka_robot_state_broadcaster:/opt/ros/humble/franka/franka_example_controllers:/opt/ros/humble/franka/franka_semantic_components:/opt/ros/humble/franka/franka_gazebo_bringup:/opt/ros/humble/franka/franka_ign_ros2_control:/opt/ros/humble/franka/franka_fr3_moveit_config:/opt/ros/humble/franka/franka_hardware:/opt/ros/humble/franka/franka_gripper:/opt/ros/humble/franka/libfranka:/opt/ros/humble/franka/integration_launch_testing:/opt/ros/humble/franka/franka_msgs:/opt/ros/humble/franka/franka_description'}, 'shell': False}
+[0.599906] (-) TimerEvent: {}
+[0.700091] (-) TimerEvent: {}
+[0.739374] (fr3_moveit_servo) StdoutLine: {'line': b'running egg_info\n'}
+[0.739993] (fr3_moveit_servo) StdoutLine: {'line': b'writing ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/PKG-INFO\n'}
+[0.740308] (fr3_moveit_servo) StdoutLine: {'line': b'writing dependency_links to ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/dependency_links.txt\n'}
+[0.740603] (fr3_moveit_servo) StdoutLine: {'line': b'writing entry points to ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/entry_points.txt\n'}
+[0.740769] (fr3_moveit_servo) StdoutLine: {'line': b'writing requirements to ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/requires.txt\n'}
+[0.741004] (fr3_moveit_servo) StdoutLine: {'line': b'writing top-level names to ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/top_level.txt\n'}
+[0.742218] (fr3_moveit_servo) StdoutLine: {'line': b"reading manifest file '../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/SOURCES.txt'\n"}
+[0.742933] (fr3_moveit_servo) StdoutLine: {'line': b"writing manifest file '../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/SOURCES.txt'\n"}
+[0.743180] (fr3_moveit_servo) StdoutLine: {'line': b'running build\n'}
+[0.743248] (fr3_moveit_servo) StdoutLine: {'line': b'running build_py\n'}
+[0.743428] (fr3_moveit_servo) StdoutLine: {'line': b'running install\n'}
+[0.743621] (fr3_moveit_servo) StdoutLine: {'line': b'running install_lib\n'}
+[0.744600] (fr3_moveit_servo) StdoutLine: {'line': b'running install_data\n'}
+[0.744776] (fr3_moveit_servo) StdoutLine: {'line': b'running install_egg_info\n'}
+[0.746303] (fr3_moveit_servo) StdoutLine: {'line': b"removing '/workspace/install/fr3_moveit_servo/lib/python3.10/site-packages/fr3_moveit_servo-0.0.1-py3.10.egg-info' (and everything under it)\n"}
+[0.746640] (fr3_moveit_servo) StdoutLine: {'line': b'Copying ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info to /workspace/install/fr3_moveit_servo/lib/python3.10/site-packages/fr3_moveit_servo-0.0.1-py3.10.egg-info\n'}
+[0.747506] (fr3_moveit_servo) StdoutLine: {'line': b'running install_scripts\n'}
+[0.765787] (fr3_moveit_servo) StdoutLine: {'line': b'Installing servo_test_client script to /workspace/install/fr3_moveit_servo/lib/fr3_moveit_servo\n'}
+[0.766088] (fr3_moveit_servo) StdoutLine: {'line': b"writing list of installed files to '/workspace/build/fr3_moveit_servo/install.log'\n"}
+[0.784819] (fr3_moveit_servo) CommandEnded: {'returncode': 0}
+[0.795383] (fr3_moveit_servo) JobEnded: {'identifier': 'fr3_moveit_servo', 'rc': 0}
+[0.796031] (-) EventReactorShutdown: {}

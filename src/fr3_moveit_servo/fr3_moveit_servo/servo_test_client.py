@@ -5,6 +5,7 @@ Sends commands to rotate the wrist (FR3 joint 7) at 0.25 rad/s.
 """
 
 import sys
+import time
 import rclpy
 from rclpy.node import Node
 from rclpy.utilities import remove_ros_args
@@ -49,14 +50,14 @@ class ServoTestClient(Node):
             "fr3_joint7"  # Wrist joint
         ]
 
-        start_time = self.get_clock().now()
-        rate = self.create_rate(100)  # 100 Hz command rate
+        start_time = time.time()
         loop_count = 0
+        command_interval = 1.0 / 100.0  # 100 Hz = 0.01 seconds per iteration
 
         while rclpy.ok():
-            # Calculate elapsed time using ROS time
-            current_time = self.get_clock().now()
-            elapsed = (current_time - start_time).nanoseconds / 1e9  # Convert to seconds
+            # Calculate elapsed time using wall clock time
+            current_time = time.time()
+            elapsed = current_time - start_time
 
             # Check if duration has elapsed
             if elapsed >= duration:
@@ -65,7 +66,7 @@ class ServoTestClient(Node):
             # Create joint state message with velocity commands
             # Only wrist joint (index 6) has non-zero velocity
             msg = JointState()
-            msg.header.stamp = current_time.to_msg()
+            msg.header.stamp = self.get_clock().now().to_msg()
             msg.name = joint_names
             msg.velocity = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, wrist_velocity]
 
@@ -76,7 +77,8 @@ class ServoTestClient(Node):
             if loop_count % 200 == 0:
                 self.get_logger().info(f"Elapsed: {elapsed:.1f}s, Sending wrist velocity: {wrist_velocity} rad/s")
 
-            rate.sleep()
+            # Sleep for the command interval
+            time.sleep(command_interval)
 
         # Send final stop command
         msg = JointState()

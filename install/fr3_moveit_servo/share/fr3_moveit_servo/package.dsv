@@ -4,6 +4,3 @@ source;share/fr3_moveit_servo/hook/pythonpath.sh
 source;share/fr3_moveit_servo/hook/ament_prefix_path.ps1
 source;share/fr3_moveit_servo/hook/ament_prefix_path.dsv
 source;share/fr3_moveit_servo/hook/ament_prefix_path.sh
-source;../../build/fr3_moveit_servo/share/fr3_moveit_servo/hook/pythonpath_develop.ps1
-source;../../build/fr3_moveit_servo/share/fr3_moveit_servo/hook/pythonpath_develop.dsv
-source;../../build/fr3_moveit_servo/share/fr3_moveit_servo/hook/pythonpath_develop.sh
