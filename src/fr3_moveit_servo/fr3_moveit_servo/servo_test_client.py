@@ -28,7 +28,11 @@ class ServoTestClient(Node):
     
     def send_wrist_velocity(self, wrist_velocity=0.25, duration=10.0):
         """
-        Send velocity command to rotate the wrist joint at constant speed.
+        Send velocity commands to rotate the wrist joint at constant speed.
+        
+        This method continuously publishes joint velocity commands to the servo node,
+        rotating the wrist joint (fr3_joint7) at the specified velocity. The method
+        blocks execution for the specified duration and then stops the joint motion.
         
         Args:
             wrist_velocity: Target velocity for wrist joint in rad/s. Default: 0.25
@@ -49,10 +53,14 @@ class ServoTestClient(Node):
         rate = self.create_rate(100)  # 100 Hz command rate
         loop_count = 0
         
-        while (self.get_clock().now() - start_time).nanoseconds / 1e9 < duration:
-            # Check if duration has elapsed using ROS time
+        while True:
+            # Calculate elapsed time using ROS time
             current_time = self.get_clock().now()
             elapsed = (current_time - start_time).nanoseconds / 1e9  # Convert to seconds
+            
+            # Check if duration has elapsed
+            if elapsed >= duration:
+                break
             
             # Create joint state message with velocity commands
             # Only wrist joint (index 6) has non-zero velocity
