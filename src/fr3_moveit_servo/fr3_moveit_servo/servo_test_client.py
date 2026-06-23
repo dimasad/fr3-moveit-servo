@@ -53,7 +53,7 @@ class ServoTestClient(Node):
         rate = self.create_rate(100)  # 100 Hz command rate
         loop_count = 0
         
-        while True:
+        while rclpy.ok():
             # Calculate elapsed time using ROS time
             current_time = self.get_clock().now()
             elapsed = (current_time - start_time).nanoseconds / 1e9  # Convert to seconds
@@ -71,7 +71,7 @@ class ServoTestClient(Node):
             
             self.joint_cmd_publisher.publish(msg)
             
-            # Print status every 100 iterations (roughly every 1 second at 100Hz)
+            # Print status every 100 iterations (roughly every 1 second at 100 Hz)
             loop_count += 1
             if loop_count % 100 == 0:
                 self.get_logger().info(f"Elapsed: {elapsed:.1f}s, Sending wrist velocity: {wrist_velocity} rad/s")
