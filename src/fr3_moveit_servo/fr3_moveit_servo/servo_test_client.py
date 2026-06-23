@@ -4,10 +4,10 @@ Test client for moveit_servo that sends joint velocity commands to rotate the wr
 Sends commands to rotate the wrist (FR3 joint 7) at 0.25 rad/s.
 """
 
+import sys
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import JointState
-import time
 
 
 class ServoTestClient(Node):
@@ -44,22 +44,30 @@ class ServoTestClient(Node):
             "fr3_joint7"  # Wrist joint
         ]
         
-        start_time = time.time()
+        start_time = self.get_clock().now()
         rate = self.create_rate(100)  # 100 Hz command rate
+        loop_count = 0
         
-        while (time.time() - start_time) < duration:
+        while True:
+            # Check if duration has elapsed using ROS time
+            current_time = self.get_clock().now()
+            elapsed = (current_time - start_time).nanoseconds / 1e9  # Convert to seconds
+            
+            if elapsed >= duration:
+                break
+            
             # Create joint state message with velocity commands
             # Only wrist joint (index 6) has non-zero velocity
             msg = JointState()
-            msg.header.stamp = self.get_clock().now().to_msg()
+            msg.header.stamp = current_time.to_msg()
             msg.name = joint_names
             msg.velocity = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, wrist_velocity]
             
             self.joint_cmd_publisher.publish(msg)
             
-            # Print status periodically
-            elapsed = time.time() - start_time
-            if int(elapsed) % 2 == 0 and elapsed > int(elapsed) - 0.01:
+            # Print status every 100 iterations (roughly every 1 second at 100Hz)
+            loop_count += 1
+            if loop_count % 100 == 0:
                 self.get_logger().info(f"Elapsed: {elapsed:.1f}s, Sending wrist velocity: {wrist_velocity} rad/s")
             
             rate.sleep()
@@ -78,7 +86,6 @@ def main(args=None):
     rclpy.init(args=args)
     
     # Parse command line arguments
-    import sys
     wrist_velocity = 0.25
     duration = 10.0
     

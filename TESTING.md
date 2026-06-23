@@ -86,7 +86,7 @@ If you want to manually test servo commands without the test client:
 
 ```bash
 # In one terminal, publish velocity commands
-ros2 topic pub -r 100 /servo_node/delta_joint_cmds sensor_msgs/JointState "{header: {frame_id: 'world'}, name: ['fr3_joint1', 'fr3_joint2', 'fr3_joint3', 'fr3_joint4', 'fr3_joint5', 'fr3_joint6', 'fr3_joint7'], velocity: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25]}"
+ros2 topic pub -r 100 /servo_node/delta_joint_cmds sensor_msgs/JointState "{header: {frame_id: 'fr3_link0'}, name: ['fr3_joint1', 'fr3_joint2', 'fr3_joint3', 'fr3_joint4', 'fr3_joint5', 'fr3_joint6', 'fr3_joint7'], velocity: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25]}"
 ```
 
 ## Step 5: Verify Joint Movement
