@@ -1,0 +1,106 @@
+#!/usr/bin/env python3
+"""
+Test client for moveit_servo that sends joint velocity commands to rotate the wrist joint.
+Sends commands to rotate the wrist (FR3 joint 7) at 0.25 rad/s.
+"""
+
+import rclpy
+from rclpy.node import Node
+from sensor_msgs.msg import JointState
+import time
+
+
+class ServoTestClient(Node):
+    def __init__(self):
+        super().__init__("servo_test_client")
+        
+        # Create publisher for joint velocity commands
+        self.joint_cmd_publisher = self.create_publisher(
+            JointState, 
+            "/servo_node/delta_joint_cmds", 
+            10
+        )
+        
+        self.get_logger().info("Servo test client initialized")
+        self.get_logger().info("Publishing joint velocity commands to /servo_node/delta_joint_cmds")
+        self.get_logger().info("Rotating wrist joint (FR3_joint7) at 0.25 rad/s")
+    
+    def send_wrist_velocity(self, wrist_velocity=0.25, duration=10.0):
+        """
+        Send velocity command to rotate the wrist joint.
+        
+        Args:
+            wrist_velocity: Target velocity for wrist joint in rad/s (default: 0.25)
+            duration: Duration to send commands in seconds (default: 10.0)
+        """
+        # FR3 joint names
+        joint_names = [
+            "fr3_joint1",
+            "fr3_joint2", 
+            "fr3_joint3",
+            "fr3_joint4",
+            "fr3_joint5",
+            "fr3_joint6",
+            "fr3_joint7"  # Wrist joint
+        ]
+        
+        start_time = time.time()
+        rate = self.create_rate(100)  # 100 Hz command rate
+        
+        while (time.time() - start_time) < duration:
+            # Create joint state message with velocity commands
+            # Only wrist joint (index 6) has non-zero velocity
+            msg = JointState()
+            msg.header.stamp = self.get_clock().now().to_msg()
+            msg.name = joint_names
+            msg.velocity = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, wrist_velocity]
+            
+            self.joint_cmd_publisher.publish(msg)
+            
+            # Print status periodically
+            elapsed = time.time() - start_time
+            if int(elapsed) % 2 == 0 and elapsed > int(elapsed) - 0.01:
+                self.get_logger().info(f"Elapsed: {elapsed:.1f}s, Sending wrist velocity: {wrist_velocity} rad/s")
+            
+            rate.sleep()
+        
+        # Send final stop command
+        msg = JointState()
+        msg.header.stamp = self.get_clock().now().to_msg()
+        msg.name = joint_names
+        msg.velocity = [0.0] * 7
+        self.joint_cmd_publisher.publish(msg)
+        
+        self.get_logger().info("Test complete - wrist joint stopped")
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    
+    # Parse command line arguments
+    import sys
+    wrist_velocity = 0.25
+    duration = 10.0
+    
+    if len(sys.argv) > 1:
+        try:
+            wrist_velocity = float(sys.argv[1])
+        except ValueError:
+            print(f"Invalid wrist velocity: {sys.argv[1]}")
+            sys.exit(1)
+    
+    if len(sys.argv) > 2:
+        try:
+            duration = float(sys.argv[2])
+        except ValueError:
+            print(f"Invalid duration: {sys.argv[2]}")
+            sys.exit(1)
+    
+    client = ServoTestClient()
+    client.send_wrist_velocity(wrist_velocity=wrist_velocity, duration=duration)
+    
+    rclpy.shutdown()
+
+
+if __name__ == "__main__":
+    main()
