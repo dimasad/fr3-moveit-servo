@@ -1,0 +1,39 @@
+running egg_info
+creating ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info
+writing ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/PKG-INFO
+writing dependency_links to ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/dependency_links.txt
+writing entry points to ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/entry_points.txt
+writing requirements to ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/requires.txt
+writing top-level names to ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/top_level.txt
+writing manifest file '../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/SOURCES.txt'
+reading manifest file '../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/SOURCES.txt'
+writing manifest file '../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /workspace/build/fr3_moveit_servo/build
+creating /workspace/build/fr3_moveit_servo/build/lib
+creating /workspace/build/fr3_moveit_servo/build/lib/fr3_moveit_servo
+copying fr3_moveit_servo/__init__.py -> /workspace/build/fr3_moveit_servo/build/lib/fr3_moveit_servo
+copying fr3_moveit_servo/servo_test_client.py -> /workspace/build/fr3_moveit_servo/build/lib/fr3_moveit_servo
+running install
+running install_lib
+creating /workspace/install/fr3_moveit_servo/lib/python3.10/site-packages/fr3_moveit_servo
+copying /workspace/build/fr3_moveit_servo/build/lib/fr3_moveit_servo/__init__.py -> /workspace/install/fr3_moveit_servo/lib/python3.10/site-packages/fr3_moveit_servo
+copying /workspace/build/fr3_moveit_servo/build/lib/fr3_moveit_servo/servo_test_client.py -> /workspace/install/fr3_moveit_servo/lib/python3.10/site-packages/fr3_moveit_servo
+byte-compiling /workspace/install/fr3_moveit_servo/lib/python3.10/site-packages/fr3_moveit_servo/__init__.py to __init__.cpython-310.pyc
+byte-compiling /workspace/install/fr3_moveit_servo/lib/python3.10/site-packages/fr3_moveit_servo/servo_test_client.py to servo_test_client.cpython-310.pyc
+running install_data
+creating /workspace/install/fr3_moveit_servo/share/ament_index
+creating /workspace/install/fr3_moveit_servo/share/ament_index/resource_index
+creating /workspace/install/fr3_moveit_servo/share/ament_index/resource_index/packages
+copying resource/fr3_moveit_servo -> /workspace/install/fr3_moveit_servo/share/ament_index/resource_index/packages
+copying package.xml -> /workspace/install/fr3_moveit_servo/share/fr3_moveit_servo
+creating /workspace/install/fr3_moveit_servo/share/fr3_moveit_servo/launch
+copying launch/fr3_moveit_servo.launch.py -> /workspace/install/fr3_moveit_servo/share/fr3_moveit_servo/launch
+creating /workspace/install/fr3_moveit_servo/share/fr3_moveit_servo/config
+copying config/fr3_servo_params.yaml -> /workspace/install/fr3_moveit_servo/share/fr3_moveit_servo/config
+running install_egg_info
+Copying ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info to /workspace/install/fr3_moveit_servo/lib/python3.10/site-packages/fr3_moveit_servo-0.0.1-py3.10.egg-info
+running install_scripts
+Installing servo_test_client script to /workspace/install/fr3_moveit_servo/lib/fr3_moveit_servo
+writing list of installed files to '/workspace/build/fr3_moveit_servo/install.log'
