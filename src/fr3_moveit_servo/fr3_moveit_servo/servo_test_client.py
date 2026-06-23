@@ -23,7 +23,7 @@ class ServoTestClient(Node):
         
         self.get_logger().info("Servo test client initialized")
         self.get_logger().info("Publishing joint velocity commands to /servo_node/delta_joint_cmds")
-        self.get_logger().info("Rotating wrist joint (FR3_joint7) at 0.25 rad/s")
+        self.get_logger().info("Rotating wrist joint (fr3_joint7) at 0.25 rad/s")
     
     def send_wrist_velocity(self, wrist_velocity=0.25, duration=10.0):
         """
@@ -93,14 +93,14 @@ def main(args=None):
         try:
             wrist_velocity = float(sys.argv[1])
         except ValueError:
-            print(f"Invalid wrist velocity: {sys.argv[1]}")
+            print(f"Invalid wrist velocity: {sys.argv[1]}. Expected a numeric value in rad/s.")
             sys.exit(1)
     
     if len(sys.argv) > 2:
         try:
             duration = float(sys.argv[2])
         except ValueError:
-            print(f"Invalid duration: {sys.argv[2]}")
+            print(f"Invalid duration: {sys.argv[2]}. Expected a numeric value in seconds.")
             sys.exit(1)
     
     client = ServoTestClient()

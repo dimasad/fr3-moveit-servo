@@ -66,7 +66,7 @@ ros2 run fr3_moveit_servo servo_test_client 0.25 10.0
 
 When the test client runs, you should see:
 1. The test client prints: "Publishing joint velocity commands to /servo_node/delta_joint_cmds"
-2. The test client prints: "Rotating wrist joint (FR3_joint7) at X rad/s" (where X is your specified velocity)
+2. The test client prints: "Rotating wrist joint (fr3_joint7) at X rad/s" (where X is your specified velocity)
 3. Every 1 second, it prints the elapsed time and current velocity
 4. After the specified duration, it prints "Test complete - wrist joint stopped"
 
