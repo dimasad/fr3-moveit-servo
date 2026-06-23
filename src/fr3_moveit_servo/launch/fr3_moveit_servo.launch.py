@@ -1,5 +1,4 @@
 import os
-import pathlib
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
@@ -15,7 +14,7 @@ def generate_launch_description():
     use_fake_arg = DeclareLaunchArgument("use_fake_hardware", default_value="false")
 
     # 2. Include the official Franka MoveIt launch sequence
-    franka_moveit_dir = get_package_share_directory("franka_moveit_config")
+    franka_moveit_dir = get_package_share_directory("franka_fr3_moveit_config")
     base_moveit_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(franka_moveit_dir, "launch", "moveit.launch.py")),
         launch_arguments={
@@ -25,17 +24,17 @@ def generate_launch_description():
     )
 
     # 3. Pull configurations specifically for the Servo Node parameter mapping
+    franka_fr3_config_dir = get_package_share_directory("franka_fr3_moveit_config")
     moveit_config = (
-        MoveItConfigsBuilder("franka_fr3_moveit_config", package_path="share/franka_fr3_moveit_config")
+        MoveItConfigsBuilder("franka_fr3_moveit_config", package_path=franka_fr3_config_dir)
         .robot_description()
         .robot_description_semantic()
         .robot_description_kinematics()
         .to_moveit_configs()
     )
 
-    servo_yaml_path = str(
-        pathlib.Path(__file__).parents[1] / "config" / "fr3_servo_params.yaml"
-    )
+    fr3_servo_config_dir = get_package_share_directory("fr3_moveit_servo")
+    servo_yaml_path = os.path.join(fr3_servo_config_dir, "config", "fr3_servo_params.yaml")
 
     servo_node = Node(
         package="moveit_servo",
