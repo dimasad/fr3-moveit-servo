@@ -4,9 +4,10 @@ from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import LaunchConfiguration, Command, FindExecutable
 from launch_ros.actions import Node
-from moveit_configs_utils import MoveItConfigsBuilder
+from launch_ros.parameter_descriptions import ParameterValue
+
 
 def generate_launch_description():
     # 1. Declare runtime arguments
@@ -23,18 +24,39 @@ def generate_launch_description():
         }.items()
     )
 
-    # 3. Pull configurations specifically for the Servo Node parameter mapping
-    franka_fr3_config_dir = get_package_share_directory("franka_fr3_moveit_config")
-    moveit_config = (
-        MoveItConfigsBuilder("franka_fr3_moveit_config", package_path=franka_fr3_config_dir)
-        .robot_description()
-        .robot_description_semantic()
-        .robot_description_kinematics()
-        .to_moveit_configs()
-    )
-
+    # 3. Load servo configuration parameters
     fr3_servo_config_dir = get_package_share_directory("fr3_moveit_servo")
     servo_yaml_path = os.path.join(fr3_servo_config_dir, "config", "fr3_servo_params.yaml")
+
+    # Also load kinematics config from franka_fr3_moveit_config for inverse kinematics
+    franka_kinematics_file = os.path.join(
+        get_package_share_directory("franka_fr3_moveit_config"),
+        "config",
+        "kinematics.yaml",
+    )
+
+    # Get robot description from franka_description package
+    franka_xacro_file = os.path.join(
+        get_package_share_directory("franka_description"),
+        "robots", "fr3", "fr3.urdf.xacro"
+    )
+
+    robot_description_content = Command(
+        [
+            FindExecutable(name="xacro"),
+            " ",
+            franka_xacro_file,
+            " hand:=true",
+            " use_fake_hardware:=",
+            LaunchConfiguration("use_fake_hardware"),
+            " robot_ip:=",
+            LaunchConfiguration("robot_ip"),
+        ]
+    )
+
+    robot_description = {
+        "robot_description": ParameterValue(robot_description_content, value_type=str)
+    }
 
     servo_node = Node(
         package="moveit_servo",
@@ -42,10 +64,9 @@ def generate_launch_description():
         name="servo_node",
         output="screen",
         parameters=[
+            robot_description,
             servo_yaml_path,
-            moveit_config.robot_description,
-            moveit_config.robot_description_semantic,
-            moveit_config.robot_description_kinematics,
+            franka_kinematics_file,
         ],
     )
 

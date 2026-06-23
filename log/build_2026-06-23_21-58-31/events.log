@@ -1,0 +1,34 @@
+[0.000000] (-) TimerEvent: {}
+[0.000086] (fr3_moveit_servo) JobQueued: {'identifier': 'fr3_moveit_servo', 'dependencies': OrderedDict()}
+[0.000116] (fr3_moveit_servo) JobStarted: {'identifier': 'fr3_moveit_servo'}
+[0.099155] (-) TimerEvent: {}
+[0.199337] (-) TimerEvent: {}
+[0.299514] (-) TimerEvent: {}
+[0.399661] (-) TimerEvent: {}
+[0.499839] (-) TimerEvent: {}
+[0.521923] (fr3_moveit_servo) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/fr3_moveit_servo', 'build', '--build-base', '/workspace/build/fr3_moveit_servo/build', 'install', '--record', '/workspace/build/fr3_moveit_servo/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/workspace/src/fr3_moveit_servo', 'env': {'HOSTNAME': 'runnervm7b5n9', 'SHLVL': '0', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/root', 'OLDPWD': '/', 'ROS_PYTHON_VERSION': '3', 'ROS_DISTRO': 'humble', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'DISPLAY': '', 'LANG': 'C.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'ROS_DOMAIN_ID': '0', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'PWD': '/workspace/build/fr3_moveit_servo', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/workspace/build/fr3_moveit_servo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/install/fr3_moveit_servo/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1'}, 'shell': False}
+[0.599951] (-) TimerEvent: {}
+[0.700114] (-) TimerEvent: {}
+[0.717419] (fr3_moveit_servo) StdoutLine: {'line': b'running egg_info\n'}
+[0.718098] (fr3_moveit_servo) StdoutLine: {'line': b'writing ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/PKG-INFO\n'}
+[0.718342] (fr3_moveit_servo) StdoutLine: {'line': b'writing dependency_links to ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/dependency_links.txt\n'}
+[0.718568] (fr3_moveit_servo) StdoutLine: {'line': b'writing entry points to ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/entry_points.txt\n'}
+[0.718747] (fr3_moveit_servo) StdoutLine: {'line': b'writing requirements to ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/requires.txt\n'}
+[0.718964] (fr3_moveit_servo) StdoutLine: {'line': b'writing top-level names to ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/top_level.txt\n'}
+[0.720440] (fr3_moveit_servo) StdoutLine: {'line': b"reading manifest file '../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/SOURCES.txt'\n"}
+[0.721268] (fr3_moveit_servo) StdoutLine: {'line': b"writing manifest file '../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/SOURCES.txt'\n"}
+[0.721495] (fr3_moveit_servo) StdoutLine: {'line': b'running build\n'}
+[0.721598] (fr3_moveit_servo) StdoutLine: {'line': b'running build_py\n'}
+[0.721822] (fr3_moveit_servo) StdoutLine: {'line': b'running install\n'}
+[0.722153] (fr3_moveit_servo) StdoutLine: {'line': b'running install_lib\n'}
+[0.723194] (fr3_moveit_servo) StdoutLine: {'line': b'running install_data\n'}
+[0.723416] (fr3_moveit_servo) StdoutLine: {'line': b'copying launch/fr3_moveit_servo.launch.py -> /workspace/install/fr3_moveit_servo/share/fr3_moveit_servo/launch\n'}
+[0.723692] (fr3_moveit_servo) StdoutLine: {'line': b'running install_egg_info\n'}
+[0.725289] (fr3_moveit_servo) StdoutLine: {'line': b"removing '/workspace/install/fr3_moveit_servo/lib/python3.10/site-packages/fr3_moveit_servo-0.0.1-py3.10.egg-info' (and everything under it)\n"}
+[0.725702] (fr3_moveit_servo) StdoutLine: {'line': b'Copying ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info to /workspace/install/fr3_moveit_servo/lib/python3.10/site-packages/fr3_moveit_servo-0.0.1-py3.10.egg-info\n'}
+[0.726649] (fr3_moveit_servo) StdoutLine: {'line': b'running install_scripts\n'}
+[0.744711] (fr3_moveit_servo) StdoutLine: {'line': b'Installing servo_test_client script to /workspace/install/fr3_moveit_servo/lib/fr3_moveit_servo\n'}
+[0.745043] (fr3_moveit_servo) StdoutLine: {'line': b"writing list of installed files to '/workspace/build/fr3_moveit_servo/install.log'\n"}
+[0.762386] (fr3_moveit_servo) CommandEnded: {'returncode': 0}
+[0.772882] (fr3_moveit_servo) JobEnded: {'identifier': 'fr3_moveit_servo', 'rc': 0}
+[0.773380] (-) EventReactorShutdown: {}

@@ -1,0 +1,22 @@
+[0.522s] Invoking command in '/workspace/src/fr3_moveit_servo': PYTHONPATH=/workspace/build/fr3_moveit_servo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/install/fr3_moveit_servo/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/fr3_moveit_servo build --build-base /workspace/build/fr3_moveit_servo/build install --record /workspace/build/fr3_moveit_servo/install.log --single-version-externally-managed install_data
+[0.715s] running egg_info
+[0.716s] writing ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/PKG-INFO
+[0.716s] writing dependency_links to ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/dependency_links.txt
+[0.716s] writing entry points to ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/entry_points.txt
+[0.716s] writing requirements to ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/requires.txt
+[0.717s] writing top-level names to ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/top_level.txt
+[0.718s] reading manifest file '../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/SOURCES.txt'
+[0.719s] writing manifest file '../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info/SOURCES.txt'
+[0.719s] running build
+[0.719s] running build_py
+[0.719s] running install
+[0.720s] running install_lib
+[0.721s] running install_data
+[0.721s] copying launch/fr3_moveit_servo.launch.py -> /workspace/install/fr3_moveit_servo/share/fr3_moveit_servo/launch
+[0.721s] running install_egg_info
+[0.723s] removing '/workspace/install/fr3_moveit_servo/lib/python3.10/site-packages/fr3_moveit_servo-0.0.1-py3.10.egg-info' (and everything under it)
+[0.723s] Copying ../../build/fr3_moveit_servo/fr3_moveit_servo.egg-info to /workspace/install/fr3_moveit_servo/lib/python3.10/site-packages/fr3_moveit_servo-0.0.1-py3.10.egg-info
+[0.724s] running install_scripts
+[0.742s] Installing servo_test_client script to /workspace/install/fr3_moveit_servo/lib/fr3_moveit_servo
+[0.742s] writing list of installed files to '/workspace/build/fr3_moveit_servo/install.log'
+[0.759s] Invoked command in '/workspace/src/fr3_moveit_servo' returned '0': PYTHONPATH=/workspace/build/fr3_moveit_servo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/install/fr3_moveit_servo/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/fr3_moveit_servo build --build-base /workspace/build/fr3_moveit_servo/build install --record /workspace/build/fr3_moveit_servo/install.log --single-version-externally-managed install_data
