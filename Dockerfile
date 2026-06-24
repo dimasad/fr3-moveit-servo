@@ -1,4 +1,4 @@
-FROM docker.io/library/ros:humble-ros-base
+FROM docker.io/library/ros:jazzy-ros-base
 
 RUN apt-get update && apt-get install -y \
   # Install libfranka build depencencies
@@ -8,14 +8,14 @@ RUN apt-get update && apt-get install -y \
   libeigen3-dev \
   libfmt-dev \
   libpoco-dev \
-  ros-humble-pinocchio \
-  ros-humble-rmw-cyclonedds-cpp \
+  ros-jazzy-pinocchio \
+  ros-jazzy-rmw-cyclonedds-cpp \
   # Install Moveit2 and moveit servo
-  ros-humble-moveit \
-  ros-humble-moveit-servo \
+  ros-jazzy-moveit \
+  ros-jazzy-moveit-servo \
   # Install missing franka_ros2 build dependencies (workaround franka_ros2 issue 160)
-  ros-humble-controller-interface \
-  ros-humble-hardware-interface \
+  ros-jazzy-controller-interface \
+  ros-jazzy-hardware-interface \
   # Install ros packages
   python3-colcon-common-extensions \
   python3-colcon-mixin \
@@ -31,7 +31,7 @@ ARG LIBFRANKA_VERSION=0.15.0
 ARG FRANKA_ROS2_VERSION=v2.1.0
 ARG FRANKA_DESCRIPTION_VERSION=1.3.0
 
-RUN /bin/bash -c 'source /opt/ros/humble/setup.bash && \
+RUN /bin/bash -c 'source /opt/ros/jazzy/setup.bash && \
 mkdir -p /tmp/franka_ros2 && cd /tmp/franka_ros2 && \
   git clone --recursive https://github.com/frankarobotics/libfranka --branch ${LIBFRANKA_VERSION} && \
   git clone --recursive https://github.com/frankarobotics/franka_ros2.git --branch ${FRANKA_ROS2_VERSION} && \
@@ -40,8 +40,8 @@ mkdir -p /tmp/franka_ros2 && cd /tmp/franka_ros2 && \
   rosdep update && \
   rosdep install --from-paths . --ignore-src -r -y && \
   rm -rf /var/lib/apt/lists/* && \
-  colcon build --install-base /opt/ros/humble/franka --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=off  && \
+  colcon build --install-base /opt/ros/jazzy/franka --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=off  && \
   cd .. && \ 
   rm -rf /tmp/franka_ros2 && \
-  echo "source /opt/ros/humble/franka/setup.bash" >> ~/.bashrc && \
-  echo "source /opt/ros/humble/franka/setup.sh" >> ~/.profile'
+  echo "source /opt/ros/jazzy/franka/setup.bash" >> ~/.bashrc && \
+  echo "source /opt/ros/jazzy/franka/setup.sh" >> ~/.profile'
