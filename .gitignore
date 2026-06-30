@@ -1,3 +1,7 @@
+# Colcon workspace generated folders
+log/
+install/
+
 devel/
 logs/
 build/
