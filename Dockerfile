@@ -33,7 +33,6 @@ RUN /bin/bash -c 'source /opt/ros/${ROS_DISTRO}/setup.bash && \
   curl -L -O https://github.com/frankarobotics/libfranka/releases/download/${LIBFRANKA_VERSION}/libfranka_${LIBFRANKA_VERSION}_`lsb_release -cs`_amd64.deb && \
   apt-get update && \
   apt-get install -y ./libfranka_${LIBFRANKA_VERSION}_`lsb_release -cs`_amd64.deb && \
-  git clone --recursive https://github.com/frankarobotics/libfranka --branch ${LIBFRANKA_VERSION} && \
   git clone --recursive https://github.com/frankarobotics/franka_ros2.git --branch ${FRANKA_ROS2_VERSION} && \
   git clone --recursive https://github.com/frankarobotics/franka_description.git --branch ${FRANKA_DESCRIPTION_VERSION} && \
   rosdep update && \
