@@ -37,7 +37,7 @@ RUN /bin/bash -c 'source /opt/ros/${ROS_DISTRO}/setup.bash && \
   rosdep update && \
   rosdep install --from-paths . --ignore-src -r -y && \
   rm -rf /var/lib/apt/lists/* && \
-  colcon build --install-base /opt/ros/${ROS_DISTRO}/franka --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=off  && \
+  colcon build --install-base /opt/ros/${ROS_DISTRO}/franka --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=off -DBUILD_TESTS=OFF && \
   cd .. && \ 
   rm -rf /tmp/franka_ros2 && \
   echo "source /opt/ros/${ROS_DISTRO}/franka/setup.bash" >> ~/.bashrc && \
