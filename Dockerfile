@@ -1,7 +1,8 @@
 FROM docker.io/library/ros:jazzy-ros-base
 
 RUN apt-get update && apt-get install -y \
-  # Install libfranka build depencencies
+  # Install tools and franka_ros2 build dependencies
+  curl \
   build-essential \
   cmake \
   git \
@@ -30,10 +31,11 @@ ARG FRANKA_DESCRIPTION_VERSION=2.8.0
 
 RUN /bin/bash -c 'source /opt/ros/${ROS_DISTRO}/setup.bash && \
   mkdir -p /tmp/franka_ros2 && cd /tmp/franka_ros2 && \
-  git clone --recursive https://github.com/frankarobotics/libfranka --branch ${LIBFRANKA_VERSION} && \
+  curl -L -O https://github.com/frankarobotics/libfranka/releases/download/${LIBFRANKA_VERSION}/libfranka_${LIBFRANKA_VERSION}_`lsb_release -cs`_amd64.deb && \
+  apt-get update && \
+  apt-get install -y ./libfranka_${LIBFRANKA_VERSION}_`lsb_release -cs`_amd64.deb && \
   git clone --recursive https://github.com/frankarobotics/franka_ros2.git --branch ${FRANKA_ROS2_VERSION} && \
   git clone --recursive https://github.com/frankarobotics/franka_description.git --branch ${FRANKA_DESCRIPTION_VERSION} && \
-  apt-get update && \
   rosdep update && \
   rosdep install --from-paths . --ignore-src -r -y && \
   rm -rf /var/lib/apt/lists/* && \
