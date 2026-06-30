@@ -1,0 +1,17 @@
+# Override for franka_fr3_moveit_config's fr3_ros_controllers.yaml, applied only
+# when use_fake_hardware:=true (see launch/fr3_moveit_servo.launch.py).
+#
+# The stock fr3_arm_controller claims the "effort" command interface, which
+# matches the real robot's torque-control hardware interface. The simulated
+# fake hardware (mock_components/GenericSystem) has no dynamics: it cannot
+# turn a commanded effort into motion, only direct passthrough of a command
+# interface into the identically-named state interface. Switching to the
+# "position" command interface here makes the joint_trajectory commands
+# published by moveit_servo move the simulated joints directly, which is
+# what the fake-hardware test relies on. Real hardware must keep using
+# effort control, so this file must never be loaded with use_fake_hardware:=false.
+/**:
+  fr3_arm_controller:
+    ros__parameters:
+      command_interfaces:
+        - position

@@ -1,26 +1,41 @@
-## MoveIt properties
-move_group_name: fr3_arm               # Matches franka_fr3_moveit_config
-planning_frame: fr3_link0              # Base frame of the FR3
-ee_frame_name: fr3_link8               # End-effector link frame
-robot_link_command_frame: fr3_link0    # Frame in which twist commands are received
+# Parameters for moveit_servo's servo_node (moveit_servo 2.x ROS API, as shipped
+# with ROS 2 Jazzy). Loaded as a raw ROS params file by
+# launch/fr3_moveit_servo.launch.py, hence the required "/**: ros__parameters:"
+# wrapper. Servo's own parameters live under the "moveit_servo" namespace;
+# the smoothing plugin (AccelerationLimitedPlugin) reads its own
+# update_period/planning_group_name from the node's root namespace.
+/**:
+  ros__parameters:
+    moveit_servo:
+      ## MoveIt properties
+      move_group_name: fr3_arm  # Matches franka_fr3_moveit_config's planning group
 
-## Properties of incoming commands
-cartesian_command_in_topic: ~/delta_twist_cmds  # Resolves to /servo_node/delta_twist_cmds
-joint_command_in_topic: ~/delta_joint_cmds      # Resolves to /servo_node/delta_joint_cmds
+      ## Properties of incoming commands
+      command_in_type: speed_units  # Twist/joint-jog commands are in m/s and rad/s (not unitless [-1:1])
+      cartesian_command_in_topic: ~/delta_twist_cmds  # Resolves to /servo_node/delta_twist_cmds
+      joint_command_in_topic: ~/delta_joint_cmds      # Resolves to /servo_node/delta_joint_cmds
+      pose_command_in_topic: ~/pose_target_cmds       # Resolves to /servo_node/pose_target_cmds
+      incoming_command_timeout: 0.1  # Stop moving if no new command is received within this time [s]
 
-## Properties of outgoing commands
-# The franka_ros2 controller manager expects JointTrajectory messages
-command_out_type: trajectory_msgs/JointTrajectory
-command_out_topic: /fr3_arm_controller/joint_trajectory 
+      ## Properties of outgoing commands
+      command_out_type: trajectory_msgs/JointTrajectory
+      command_out_topic: /fr3_arm_controller/joint_trajectory
+      publish_joint_positions: true
+      publish_joint_velocities: true
 
-publish_period: 0.01                   # Streaming rate (100Hz)
-incoming_command_timeout: 0.1          # Stop moving if no command received for 0.1s
+      publish_period: 0.01           # Streaming rate (100 Hz)
+      max_expected_latency: 0.1
 
-## Smoothing and Limits
-use_smoothing: true
-smoothing_filter_plugin_name: "online_signal_smoothing::AccelerationLimitedPlugin"
+      ## Smoothing and limits
+      use_smoothing: true
+      smoothing_filter_plugin_name: "online_signal_smoothing::AccelerationLimitedPlugin"
 
-## Collision checking 
-check_collisions: true
-self_collision_proximity_threshold: 0.01
-scene_collision_proximity_threshold: 0.05
+      ## Collision checking
+      check_collisions: true
+      self_collision_proximity_threshold: 0.01
+      scene_collision_proximity_threshold: 0.05
+
+    # AccelerationLimitedPlugin parameters (root namespace, not under
+    # "moveit_servo", since the smoothing plugin owns its own params).
+    update_period: 0.01
+    planning_group_name: fr3_arm
