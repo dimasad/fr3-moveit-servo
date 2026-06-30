@@ -25,8 +25,8 @@ RUN apt-get update && apt-get install -y \
 # https://franka.de/fr3-compatibility-matrix
 # Adjust these parameters in the docker-compose.yml or in a .env file
 ARG LIBFRANKA_VERSION=0.20.4
-ARG FRANKA_ROS2_VERSION=v3.3.0
-ARG FRANKA_DESCRIPTION_VERSION=2.7.0
+ARG FRANKA_ROS2_VERSION=v3.4.0
+ARG FRANKA_DESCRIPTION_VERSION=2.8.0
 
 RUN /bin/bash -c 'source /opt/ros/${ROS_DISTRO}/setup.bash && \
   mkdir -p /tmp/franka_ros2 && cd /tmp/franka_ros2 && \
